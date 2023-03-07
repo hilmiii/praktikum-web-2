@@ -93,7 +93,7 @@ if ($produk == 4200000) {
 }
 
 echo "<br> Jumlah Beli : $jumlah <br>";
-echo "Total Belanja : Rp." . round(($produk * $jumlah), 3) . "-";
+echo "Total Belanja : Rp." . number_format(($produk * $jumlah),2,',','.');
 } else {
     echo "Tidak ada Data!";
 }
