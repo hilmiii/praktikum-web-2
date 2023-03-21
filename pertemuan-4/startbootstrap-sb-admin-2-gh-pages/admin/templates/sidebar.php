@@ -30,7 +30,7 @@ $icons = [
     <!-- Nav Item - Dashboard -->
     <?php foreach ($menu as $key => $value) : ?>
     <li class="nav-item">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="<?= $menu[$key] ?>">
             <i class="fas fa-fw fa-<?= $icons[$key] ?>"></i>
             <span><?= $key ?></span></a>
     </li>
