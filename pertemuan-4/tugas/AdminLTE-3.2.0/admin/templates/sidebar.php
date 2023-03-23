@@ -1,6 +1,6 @@
 <?php
 $menu = [
-    'Home' => 'index.php',
+    'Home' => 'home.php',
     'Daftar' => 'daftar.php',
     'Profile' => 'profile.php',
     'About' => 'about.php'
