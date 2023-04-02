@@ -34,8 +34,7 @@ NIM : 0110222140
             <td><?=$row['diskon']?></td>
             <td><?=$row['iuran']?></td>
             <td>
-                <a class="btn btn-primary" href="view_pelanggan.php?id=<?=$row['id']?>">View</a>
-                <a class="btn btn-primary" href="form_edit_pelanggan.php?idedit=<?=$row['id']?>">Edit</a>
+                <a class="btn btn-primary" href="edit.php?idedit=<?=$row['id']?>">Edit</a>
                 <a class="btn btn-primary <?= $row['is_pelanggan'] ? 'disabled' : '' ?>"
                     href="delete.php?iddel=<?=$row['id']?>"
                     onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$row['nama']?>?')) {return false}">Delete</a>

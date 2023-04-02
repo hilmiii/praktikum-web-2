@@ -4,22 +4,20 @@ Rombel : TI-10
 NIM : 0110222140 
 -->
 <?php 
-    require_once 'dbkoneksi.php';
-?>
-<?php 
-   $sql = "SELECT * FROM produk";
-   $rs = $dbh->query($sql);
+    require_once '../dbkoneksi.php';
+    $sql = "SELECT DISTINCT vendor.*, pembelian.vendor_id as is_pembelian FROM vendor LEFT JOIN pembelian ON vendor.id = pembelian.vendor_id";
+    $rs = $dbh->query($sql);
 ?>
 
-<a class="btn btn-success" href="form_produk.php" role="button">Create Produk</a>
+<a class="btn btn-success" href="create.php" role="button">Tambah Vendor</a>
 <table class="table" width="100%" border="1" cellspacing="2" cellpadding="2">
     <thead>
         <tr>
             <th>No</th>
-            <th>Kode</th>
+            <th>Nomor</th>
             <th>Nama</th>
-            <th>Harga Jual</th>
-            <th>Qty</th>
+            <th>Kota</th>
+            <th>Kontak</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -30,14 +28,14 @@ NIM : 0110222140
                 ?>
         <tr>
             <td><?=$nomor?></td>
-            <td><?=$row['kode']?></td>
+            <td><?=$row['nomor']?></td>
             <td><?=$row['nama']?></td>
-            <td><?=$row['harga_jual']?></td>
-            <td><?=$row['stok']?></td>
+            <td><?=$row['kota']?></td>
+            <td><?=$row['kontak']?></td>
             <td>
-                <a class="btn btn-primary" href="view_produk.php?id=<?=$row['id']?>">View</a>
-                <a class="btn btn-primary" href="form_edit_produk.php?idedit=<?=$row['id']?>">Edit</a>
-                <a class="btn btn-primary" href="delete_produk.php?iddel=<?=$row['id']?>"
+                <a class="btn btn-primary" href="edit.php?idedit=<?=$row['id']?>">Edit</a>
+                <a class="btn btn-primary <?= $row['is_pembelian'] ? 'disabled' : '' ?>"
+                    href="delete.php?iddel=<?=$row['id']?>"
                     onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$row['nama']?>?')) {return false}">Delete</a>
             </td>
         </tr>
