@@ -34,10 +34,8 @@ NIM : 0110222140
             <td><?=$row['kontak']?></td>
             <td>
                 <a class="btn btn-primary" href="edit.php?idedit=<?=$row['id']?>">Edit</a>
-                <a class="btn btn-primary <?= $row['is_pembelian'] ? 'disabled' : '' ?>"
-                    href="delete.php?iddel=<?=$row['id']?>"
+                <a class="btn btn-primary" href="delete_produk.php?iddel=<?=$row['id']?>"
                     onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$row['nama']?>?')) {return false}">Delete</a>
-            </td>
         </tr>
         <?php 
                 $nomor++;   
