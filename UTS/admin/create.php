@@ -1,3 +1,8 @@
+<!-- 
+Nama : Rizky Hilmiawan Anggoro
+Rombel : TI-10
+NIM : 0110222140 
+-->
 <?php
 require_once '../dbkoneksi.php';
 $sql = "SELECT * FROM produk";

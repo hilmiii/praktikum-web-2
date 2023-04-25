@@ -1,3 +1,8 @@
+<!-- 
+Nama : Rizky Hilmiawan Anggoro
+Rombel : TI-10
+NIM : 0110222140 
+-->
 <?php
 require_once 'dbkoneksi.php';
 $sql = "SELECT * FROM produk";
@@ -47,12 +52,9 @@ $rs = $dbh->query($sql);
     ga('create', 'UA-57708809-1', 'auto');
     ga('send', 'pageview');
     </script>
-
 </head>
 
 <body>
-
-
     <header>
         <div class="container">
             <div class="row">
@@ -176,7 +178,6 @@ $jenis_produk = array(
             <div class="row">
                 <div class="col-md-12">
                     <p>Copyright © 2023 Rizky Hilmiawan Anggoro</p>
-
                 </div>
             </div>
         </div>

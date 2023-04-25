@@ -1,4 +1,3 @@
-tanggal
 <!-- 
 Nama : Rizky Hilmiawan Anggoro
 Rombel : TI-10

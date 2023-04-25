@@ -1,3 +1,8 @@
+<!-- 
+Nama : Rizky Hilmiawan Anggoro
+Rombel : TI-10
+NIM : 0110222140 
+-->
 <?php
 require_once 'dbkoneksi.php';
 $sql = "SELECT * FROM produk";
@@ -121,21 +126,21 @@ $rs = $dbh->query($sql);
                             <div class="row">
                                 <div class="col-md-12">
                                     <?php
-$nomor = 1;
-if (!empty($rs)) {
-// Mengambil data terakhir dari objek PDOStatement
-$rows = $rs->fetchAll(PDO::FETCH_ASSOC);
-$row = end($rows);
-if ($row) {
-// Mendapatkan data produk
-$nama_produk = $row['nama_produk'];
-$qty = $row['qty'];
-$tanggal = date('Y-m-d'); // Format YYYY-MM-DD
-$total_harga = $row['total_harga'];
-$alamat_pemesan = $row['alamat_pemesan'];
-$harga = $total_harga / $qty ;
-    // Menampilkan info pesanan dalam div col-sm-3
-    ?>
+                                    $nomor = 1;
+                                    if (!empty($rs)) {
+                                    // Mengambil data terakhir dari objek PDOStatement
+                                    $rows = $rs->fetchAll(PDO::FETCH_ASSOC);
+                                    $row = end($rows);
+                                    if ($row) {
+                                    // Mendapatkan data produk
+                                    $nama_produk = $row['nama_produk'];
+                                    $qty = $row['qty'];
+                                    $tanggal = date('Y-m-d'); // Format YYYY-MM-DD
+                                    $total_harga = $row['total_harga'];
+                                    $alamat_pemesan = $row['alamat_pemesan'];
+                                    $harga = $total_harga / $qty ;
+                                    // Menampilkan info pesanan dalam div col-sm-3
+                                    ?>
                                     <div class="jumbotron">
                                         <h1>
                                             PEMESANAN ANDA BERHASIL!
@@ -165,13 +170,11 @@ $harga = $total_harga / $qty ;
                                         </p>
                                     </div>
                                     <?php
-} else {
-    echo "Data tidak ditemukan.";
-}
-}
-?>
-
-
+                                    } else {
+                                        echo "Data tidak ditemukan.";
+                                    }
+                                }
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +188,6 @@ $harga = $total_harga / $qty ;
             <div class="row">
                 <div class="col-md-12">
                     <p>Copyright © 2023 Rizky Hilmiawan Anggoro</p>
-
                 </div>
             </div>
         </div>

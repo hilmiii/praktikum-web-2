@@ -210,7 +210,6 @@ require_once 'dbkoneksi.php';
             <div class="row">
                 <div class="col-md-12">
                     <p>Copyright © 2023 Rizky Hilmiawan Anggoro</p>
-
                 </div>
             </div>
         </div>
