@@ -3,11 +3,13 @@ Nama : Rizky Hilmiawan Anggoro
 Rombel : TI-10
 NIM : 0110222140 
 -->
+
 <?php
 require_once '../dbkoneksi.php';
-$sql = "SELECT * FROM produk";
+$sql = "SELECT * FROM jenis_produk";
 $rs = $dbh->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html class="no-js">
 
@@ -66,7 +68,7 @@ $rs = $dbh->query($sql);
                         <img src="images/icon.png" alt="" style="max-width:25%;">
                     </a>
                 </div>
-                <div class="col-md-12 col-xs-8 col-sm-8">
+                <div class="col-md-6 col-xs-6 col-sm-6">
                     <div class="menu">
                         <nav class="navbar navbar-default" role="navigation">
                             <div class="container-fluid">
@@ -88,20 +90,7 @@ $rs = $dbh->query($sql);
                                         <li>
                                             <p class="mx-2"></p>
                                         </li>
-                                        <li><a href="create.php" class="btn btn-success text-light">
-                                                <b>TAMBAH PRODUK</b></a>
-                                        </li>
-                                        <li>
-                                            <p class="mx-2"></p>
-                                        </li>
-                                        <li><a href="daftar_pesanan.php" class="btn btn-warning text-light">
-                                                <b>DAFTAR PESANAN</b></a>
-                                        </li>
-                                        <li>
-                                            <p class="mx-2"></p>
-                                        </li>
-                                        <li><a href="jenis_produk.php" class="btn btn-dark text-light">
-                                                <b>JENIS PRODUK</b></a>
+                                        <li><a href="index.php" class="btn btn-danger text-light"><b>KEMBALI</b></a>
                                         </li>
                                     </ul>
 
@@ -114,48 +103,47 @@ $rs = $dbh->query($sql);
         </div>
     </header>
 
-    <section id="products">
-        <div class="container">
-            <h1 class="title">DAFTAR PRODUK</h1>
-            <hr class="divider" style="width:50%;">
-            <p class="text-center">Anda Bisa Mengedit atau Menghapus Produk Disini.</p>
-            <div class="row" style="margin-top:40px;">
-                <?php
-                $nomor = 1;
-                foreach ($rs as $row) {
-                ?>
-                <div class="col-sm-3 wow fadeInLeft product" data-wow-delay=".8s">
-                    <img src="../images/products/<?=$row['gambar']?>" alt="<?=$row['nama']?>" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4><?=$row['nama']?></h4>
-                        </div>
-                        <div class="col-sm-4 price">Rp.<?=$row['harga']?></div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="edit.php?idedit=<?=$row['id']?>" class="btn btn-default btn-grey"> <i
-                                        class="fa fa-list"></i> Edit</a>
-                            </li>
-                            <li>
-                                <a href="delete.php?iddel=<?=$row['id']?>"
-                                    onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$row['kode']?>?')) {return false}"
-                                    class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> Delete</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <?php
-                $nomor++;
-                }
-                ?>
+    <?php 
+require_once '../dbkoneksi.php';
+?>
+    <div class="container p-5">
+    </div>
+    <div class="container p-5">
+    </div>
+
+    <div class="container" style="display: grid; place-items: center">
+        <div class="card">
+            <div class="card-header">
+                <h1>Daftar Jenis Produk</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Jenis Produk</th>
+                    </tr>
+                    <?php
+        // Query untuk mengambil data dari tabel jenis_produk
+        $sql = "SELECT * FROM jenis_produk";
+        $stmt = $dbh->query($sql);
+        // Loop untuk mengambil data tiap baris hasil query
+        while ($row = $stmt->fetch()) {
+            echo "<tr>";
+            echo "<td>" . $row['id'] . "</td>"; // ID jenis produk
+            echo "<td>" . $row['nama'] . "</td>"; // Nama jenis produk
+            echo "</tr>";
+        }
+        ?>
+                </table>
+                <h2 class="text-center">Tambah Jenis Produk</h2>
+                <form method="POST" action="proses_jenis_produk.php">
+                    <input type="text" name="nama" id="nama" placeholder="Jenis Produk" required class="col-8">
+                    <button type="submit" name="proses_jenis_produk" value="Simpan"
+                        class="btn btn-success col-3">Tambah</button>
+                </form>
             </div>
         </div>
-    </section>
-
     </div>
-    </div>
-    </section>
 
     <footer class="wow fadeInUp" data-wow-delay=".8s">
         <div class="container text-center">

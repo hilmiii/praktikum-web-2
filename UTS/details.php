@@ -103,15 +103,15 @@ if(!empty($_iddetails)){
 }else{
     $row = [];
 }
-// Array mapping id jenis_produk ke nama jenis_produk
-$jenis_produk = array(
-    1 => 'Handgun',
-    2 => 'Rifle',
-    3 => 'Sniper Rifle',
-    4 => 'Shotgun',
-    5 => 'Sub Machine Gun',
-    6 => 'Machine Gun'
-);
+// Mengambil nilai jenis_produk dari hasil query
+$jenis_produk_id = $row['jenis_produk'];
+
+// Query untuk mengambil nama jenis_produk dari tabel jenis_produk
+$sql_jenis_produk = "SELECT nama FROM jenis_produk WHERE id = ?";
+$st_jenis_produk = $dbh->prepare($sql_jenis_produk);
+$st_jenis_produk->execute([$jenis_produk_id]);
+$row_jenis_produk = $st_jenis_produk->fetch();
+$jenis_produk = $row_jenis_produk['nama'];
 ?>
 
     <div class="container p-5">
@@ -150,7 +150,7 @@ $jenis_produk = array(
                                             Stok : <?=$row['stok']?>
                                         </p>
                                         <p>
-                                            Jenis : <?php echo $jenis_produk[$row['jenis_produk']]; ?>
+                                            Jenis Produk: <?php echo $jenis_produk; ?>
                                         </p>
                                         <p></p>
                                         <p>
